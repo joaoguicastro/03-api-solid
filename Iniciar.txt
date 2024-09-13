@@ -1,0 +1,45 @@
+npm init -y
+criar pasta src
+criar o server.ts
+npm i typescript @types/node tsx tsup -D
+npx tsc --init 
+trocar para o target ES2020
+npm i fastify
+criar o app.ts
+criar o .gitignore - node_modules , build e .env
+criar os scripts no package.json {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsup src --out-dir build",
+    "start": "node build/server.js"
+}
+criar o .npmrc - save-exact=true
+instalar todas as dependencias dnv
+npm i dotenv
+npm i zod
+npm i prisma -D
+npx prisma init - inizializa a parte de conexao com banco de dados - necessario a extensao prisma 
+npx prisma generate - criar de forma automatizada a tipagem - a tipagem e a automaçao do typescript para aparecer no codigo 
+docker run --name { nome do docker } -e POSTGRESQL_USERNAME={ nome do usuario do banco } -e POSTGRESQL_PASSWORD= { senha do banco de dados } -e POSTGRESQL_DATABASE= { nome do DATABASE } -p { PORTA:PORTA } bitnami/postgresql
+docker start { nome do docker }
+docker stop { nome do docker }
+docker rm { nome do docker } - deleta o docker
+docker ps - mostra os conteiner rodando 
+npx prisma migrate dev - ele vai fazer a migraçao doque estava no schema.prisma para o banco de dados
+npx prisma studio - e algo visual para ver o banco de dados
+criar o docker-compose.yml
+colocar o seguinte codigo{
+    version: '3'
+
+    services:
+    { NOME DO DOCKER }:
+        image: bitnami/postgresql
+        ports:
+            - { PORTA:PORTA }
+        environment:
+            - POSTGRESQL_USERNAME={ NOME DO USUARIO DO BANCO }
+            - POSTGRESQL_PASSWORD={ SENHA DO BANCO DE DADOS }
+            - POSTGRESQL_DATABASE={ NOME DO DATABASE }
+}
+docker compose up -d - para subir a aplicaçao
+docker compose down - vai deletar a aplicaçao
+docker compose stop - vai para a aplicaçao
