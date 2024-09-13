@@ -43,3 +43,11 @@ colocar o seguinte codigo{
 docker compose up -d - para subir a aplicaçao
 docker compose down - vai deletar a aplicaçao
 docker compose stop - vai para a aplicaçao
+npm i bcryptjs - biblioteca para fazer hashing de senha ( importar onde tiver uma senha de um usuario para fazer o hashing dele)
+npm i -D @types/bcryptjs - o typescript nao reconhece nativamente o bcryptjs entao para funcionar precisa desse codigo 
+criar pasta use case para separar o core das rotas
+criar register.ts
+dentro do register.ts do use case o reply nao funciona entao para resolver tem que utilizar o throw new Error('email already exists')
+vamos separa mais ainda o codigo do use case
+criar pasta repositories 
+criar prisma-repository-users.ts - vai ter varios metodos que vao ser as portas de entrada para qualquer operaçao que vou fazer no banco de dados
